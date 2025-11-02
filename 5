@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOAD - Week 5 Notes</title>
+    <style>
+      /* Embedded CSS - consistent with index.html */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 800px; /* Slightly wider for notes */
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 40px;
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #212529;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+        font-weight: 600;
+      }
+
+      p,
+      li,
+      ol {
+        line-height: 1.6;
+        color: #495057;
+      }
+
+      ul,
+      ol {
+        padding-left: 20px;
+      }
+
+      ul ul {
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      strong {
+        color: #343a40;
+      }
+
+      pre {
+        background-color: #e9ecef;
+        padding: 15px;
+        border-radius: 5px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+          Courier, monospace;
+        font-size: 0.9em;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background-color: #dee2e6;
+        margin: 40px 0;
+      }
+      
+      img {
+        max-width: 100%; /* MODIFIED: Ensures image is never wider than container */
+        height: auto; /* ADDED: Maintains aspect ratio when scaled */
+        display: block;
+        margin: 20px auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        background-color: #f1f1f1; /* Placeholder color */
+      }
+
+      .return-button {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: 500;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+        margin-bottom: 25px;
+      }
+
+      .return-button:hover {
+        background-color: #e9ecef;
+        border-color: #ced4da;
+      }
+
+      .bottom-nav {
+        margin-top: 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Top Return Button -->
+      <a href="https://ooadnotes.onrender.com/index.html" class="return-button"
+        >← Return to Index</a
+      >
+
+      <h1>Week 5: Introduction to UML and System Modeling</h1>
+
+
+      <hr />
+
+      <h2>Analysis vs. Design</h2>
+      <p>
+        Before building a system, we must distinguish between two critical phases: analysis and design. They answer two fundamentally different questions:
+      </p>
+      <ul>
+        <li><strong>Analysis ⇒ Do the right thing.</strong><br>This phase is about understanding the problem domain and defining <em>what</em> the system needs to do. It focuses on functional requirements and business rules.</li>
+        <li><strong>Design ⇒ Do the thing right.</strong><br>This phase is about figuring out <em>how</em> the system will accomplish its goals. It focuses on architecture, technology choices, and the implementation details.</li>
+      </ul>
+      <p>Modeling with UML is essential in both phases to ensure clarity and correctness.</p>
+
+      <hr />
+
+      <h2>Unified Modelling Language (UML)</h2>
+      <p>
+        UML is a standardized modeling language consisting of an integrated set of diagrams. It helps developers and stakeholders visualize and understand the different aspects of a system. UML diagrams are broadly categorized into two types: <strong>Structure Diagrams</strong> and <strong>Behavioral Diagrams</strong>.
+      </p>
+
+      <h3>Structure Diagrams</h3>
+      <p>These diagrams show the static structure of the system and its parts. They depict the elements that must be present in the system, such as classes, objects, and components.</p>
+      <ol>
+        <li>Composite Structure Diagram</li>
+        <li>Deployment Diagram</li>
+        <li>Package Diagram</li>
+        <li>Profile Diagram</li>
+        <li><strong>Class Diagram</strong> (Shows the classes in a system and their relationships)</li>
+        <li>Object Diagram</li>
+        <li>Component Diagram</li>
+      </ol>
+
+      <img src="https://img.plantuml.biz/plantuml/png/LP3D2i8m48JlWRp3tbIaxr3GYnSfzWcsPck3-P7DHX7ntMsi5NhQcOyP1hPEWYpPEwrMq980WbXn17raa870MBmmUgqcl7EO4kndM5fxwcsWRxWXJZ70kOIq-fwPlRG2-8TlREye12Z2jij22TQz9MVIfkGg2EXfKiqGnqB8lYEUI7iuBZmQmrG6HrCjPtBdx1ayoH3DE15ln2WsXcbc2wrayrp_p2FoTTQd78fyQrLJCED_FW00" alt="Class Diagram Example: Professor and Student relationship">
+
+      <h3>Behavioral Diagrams</h3>
+      <p>These diagrams illustrate the dynamic behavior of the system. They show how the system responds to events and how its components interact over time.</p>
+      <ol>
+        <li>Activity Diagram</li>
+        <li><strong>Use Case Diagram</strong> (Describes system functionality from a user's perspective)</li>
+        <li>State Machine Diagram</li>
+        <li>Interaction Diagrams (A sub-category that includes the following):
+            <ul>
+                <li><strong>Sequence Diagram</strong> (Shows object interactions in time sequence)</li>
+                <li>Communication Diagram</li>
+                <li>Interaction Overview Diagram</li>
+                <li>Timing Diagram</li>
+            </ul>
+        </li>
+      </ol>
+      <p>This lecture will focus primarily on Use Case Diagrams to model system functionality.</p>
+      
+      <img src="https://img.plantuml.biz/plantuml/png/TLF1ReCm3BqZyG--zRBk0pXCrThBf6cNJhiRCArLI5XiMlNlbm0fJRNUYEFtdj-BsOYYqw5hysm5UrBG8u6ojWIDTUEfPZmuxF9iAk_fTo1J4UnYFK1trB2XiR_tX5nnZqO5s8mrcK5vTdSBsq7KTkJIwYUN3XsZISllrfuchMzFMCrGBy3Ag2I93fHNSE5RbCq14CeH7GLX_RR85B5pbi1A-UmPxmU9icqiGNMawZI91kwL09wHMoovPRtcsGqSj09n0Ti0UMYxYQNs0YN8LPGwFrtVilTtOJq2Qoe4_lrqa3mBU5YdlkR6riTUqnEbnT4PMwvlISQ0lR4vdiIJ5ufX5l0p8_zZxSdvHUea1eQc1XOPQCakWBwiKW4VqxRK3Y_-sLx2GGZGENiHw2txDMYSxHQFeFOsn-j3wCjyK_1cw4h_zBOPHMMQeduA-WZNTpCc6IQhiI5J-p_e3m00" alt="Sequence Diagram Example: Library Book Checkout">
+
+      <hr />
+
+      <h2>Use Case Diagram: Banking System Example</h2>
+      <p>
+        A use case diagram captures the high-level functionality of a system by showing how external entities, called <strong>actors</strong>, interact with the system's <strong>use cases</strong> (features).
+      </p>
+
+      <h3>Task: Create a Use Case Diagram for a Banking System</h3>
+      <p>We need to identify the actors, use cases, and the associations between them for a simple banking system.</p>
+      
+      <h4>1. Identify Actors:</h4>
+      <p>Actors are roles that interact with the system. They can be people or other systems.</p>
+      <ul>
+          <li><strong>Customer:</strong> The primary user of the bank's services.</li>
+          <li><strong>Bank Employee:</strong> A staff member who manages accounts and assists customers.</li>
+          <li><strong>ATM:</strong> An automated system that provides certain banking services.</li>
+      </ul>
+
+      <h4>2. Identify Use Cases:</h4>
+      <p>Use cases are the specific goals or tasks that actors want to achieve with the system.</p>
+      <ul>
+        <li>Withdraw Cash</li>
+        <li>Deposit Funds</li>
+        <li>Check Balance</li>
+        <li>Transfer Funds</li>
+        <li>Open Account</li>
+        <li>Close Account</li>
+      </ul>
+
+      <h4>3. Define Associations:</h4>
+      <p>Associations are the lines that connect actors to the use cases they can perform.</p>
+      
+      <!-- Placeholder for the diagram -->
+      <img src="https://img.plantuml.biz/plantuml/png/TLJDQjmm4BuBz0w3BqqWVeUakotaK0fjbfvLMrwBoXeZZLcSq7VlZEHrrhlfnQ0PpNn_me-9JAHfy5fzWaEou6r7DM4TtR4dy6R6YO0GJ8mc72sOXZ0cCA65D2UoGu8Uetl5GCRxMIjP80DbGUkYRSXXq4eGNXnv2nr6eDvoqnoZ6RIYN1RudU7FljIXXiyc_77X23ypLDcnjvqBDY_8P013FWYmLgMqcnBXOEFDH6C3HUCNxl0Rfz2QECF9KG-E4aoCtp29f9KmPytChDhogE1DAv2hSXEgNppSHdCIzdsrQUtjYCaHV6MSj6rz7ss0fwPX2hJj7CRMa5r5m7Fei0AJuB1xrkhlVsoGIB947CQ9U6pHkDYJypZxamN1bs7qE5kRTvyFDxhXct6XuppAlVLKQDHrVQRomteZKQVUZKaQvSOgm_6pIGaRn-BQulXfSKwy5VvjiKkEdJYcrJhDE7SRe--lcXkhxvVtni8tKZyYyGxw0CYXP38bb_IGQKqIY9HPEcfr1INex-xTNUPwtUC0hqeRbgktcQPFUCELa-GNOfVncjikIVFYsNx0xYApMtgNpJE_JSYFDhJyX_W7" alt="Use Case Diagram for a Banking System">
+
+      <hr />
+
+      <h2>Related Concepts: CRUD Operations</h2>
+      <p>
+        Many system operations can be broken down into four fundamental functions known as CRUD. This acronym is essential in designing data-driven applications.
+      </p>
+      <ul>
+        <li><strong>C - Create:</strong> Add new data to the system (e.g., creating a new bank account).</li>
+        <li><strong>R - Retrieve / Read:</strong> Read or view existing data (e.g., checking an account balance).</li>
+        <li><strong>U - Update:</strong> Modify existing data (e.g., changing a customer's address).</li>
+        <li><strong>D - Delete:</strong> Remove data from the system (e.g., closing an account).</li>
+      </ul>
+      <p>When analyzing a system like a Point of Sale (POS), a use case like "Manage Item" would involve CRUD operations on the item's data (ItemID, Name, Price, etc.).</p>
+
+      <!-- Bottom Return Button -->
+      <div class="bottom-nav">
+        <a
+          href="https://ooadnotes.onrender.com/index.html"
+          class="return-button"
+          >← Return to Index</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
