@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOAD - Advanced Design & Analysis</title>
+    <style>
+      /* Embedded CSS */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 800px; /* Wider for notes */
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 40px;
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #212529;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+        font-weight: 600;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 15px;
+      }
+
+      h2 {
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 8px;
+      }
+
+      p,
+      li {
+        line-height: 1.6;
+        color: #495057;
+      }
+
+      ul,
+      ol {
+        padding-left: 20px;
+      }
+
+      strong {
+        color: #343a40;
+      }
+
+      ul li ul {
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+          Courier, monospace;
+        font-size: 0.9em;
+        background-color: #e9ecef;
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background-color: #dee2e6;
+        margin: 40px 0;
+      }
+
+      .return-button {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: 500;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+        margin-bottom: 25px;
+      }
+
+      .return-button:hover {
+        background-color: #e9ecef;
+        border-color: #ced4da;
+      }
+
+      .bottom-nav {
+        margin-top: 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Top Return Button -->
+      <a
+        href="https://stooadnotes.onrender.com/index.html"
+        class="return-button"
+        >← Return to Index</a
+      >
+
+      <h1>Advanced Design & Analysis Concepts</h1>
+
+      <p>
+        This document covers advanced design principles such as cohesion,
+        scalability, and iterative development, along with a deeper look into
+        analysis techniques and class design.
+      </p>
+
+      <hr />
+
+      <h2>Iterative Development</h2>
+      <p>
+        A core concept in modern software development is that design is not a
+        one-time event.
+      </p>
+      <ul>
+        <li>A good design isn't done once—it <strong>evolves</strong>.</li>
+        <li>Each development iteration improves upon the existing design.</li>
+        <li>Software design is a <strong>cycle</strong>, not a straight line.</li>
+      </ul>
+
+      <hr />
+
+      <h2>Commonality vs. Variability Analysis</h2>
+      <p>
+        This analysis technique helps identify what parts of a system are common
+        and what parts vary. This is crucial for creating flexible and reusable
+        designs, often leading to the use of abstract classes and interfaces.
+      </p>
+      <p>
+        <strong>Simple Analysis Example:</strong> What do a Turkey and a Canada
+        Goose have in common?
+      </p>
+      <ul>
+        <li>They both have feathers, are birds, and can fly or swim. These are
+          their commonalities.
+        </li>
+      </ul>
+
+      <h3>Instrument Example:</h3>
+      <ul>
+        <li>
+          <strong>Commonality (What do all instruments share?):</strong>
+          <ul>
+            <li>Manufacturer</li>
+            <li>Type</li>
+            <li>Price</li>
+            <li>Serial Number</li>
+            <li>Specifications</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Variability (What differs between instruments?):</strong>
+          <ul>
+            <li>Style</li>
+            <li>Number of strings</li>
+            <li>Wood type</li>
+            <li>Shape</li>
+            <li>Tuning</li>
+          </ul>
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>Advanced Design Principles</h2>
+      <p>
+        These principles guide developers in creating software that is robust,
+        flexible, and easy to manage over time.
+      </p>
+
+      <h3>Cohesion</h3>
+      <p>
+        Cohesion refers to how focused a class is. A class should do one thing
+        and do it really well. A key sign of good cohesion is that a class has
+        <strong>only one reason to change</strong>.
+      </p>
+      <ul>
+        <li>
+          <strong>High Cohesion (Good):</strong> Each class handles its own distinct
+          purpose, making the system more flexible.
+          <ul>
+            <li>
+              <em>Example:</em> A <code>CustomerAccount</code> class manages
+              only balance and transactions.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Low Cohesion (Bad):</strong> One class tries to do too much,
+          making it rigid and hard to change.
+          <ul>
+            <li>
+              <em>Example:</em> A generic <code>Utility</code> class that
+              handles file I/O, sending emails, and image processing.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Scalability</h3>
+      <p>
+        A system is scalable if it can easily grow or handle more features, users,
+        or data without needing major changes to the code. In other words, it can
+        expand smoothly and handle growth easily.
+      </p>
+
+      <h3>Maintainability</h3>
+      <p>
+        A system is maintainable if it is easy to understand, fix, and modify in
+        the future without breaking other parts of the code.
+      </p>
+
+      <hr />
+
+      <h2>Abstract vs. Concrete Classes</h2>
+      <p>
+        Classes can be broadly categorized as either abstract or concrete, each
+        serving a different purpose in object-oriented design.
+      </p>
+
+      <h3>Abstract Class</h3>
+      <ul>
+        <li>Acts as a <strong>blueprint</strong> for other classes.</li>
+        <li>Cannot be used to create actual objects directly.</li>
+        <li>
+          Represents a general concept that is shared by more specific types.
+        </li>
+        <li>
+          May contain abstract methods (methods without code) that subclasses
+          <strong>must implement</strong>.
+        </li>
+      </ul>
+
+      <h3>Concrete Class</h3>
+      <ul>
+        <li>A <strong>complete</strong> class.</li>
+        <li>You can create objects directly from it.</li>
+        <li>It provides actual implementations for all of its methods.</li>
+      </ul>
+
+      <h3>Advantages of Using Abstract Classes</h3>
+      <ul>
+        <li>
+          <strong>Clean and Logical:</strong> Separates general ideas from
+          specific ones. Common properties and methods go in the abstract parent
+          class.
+        </li>
+        <li>
+          <strong>Reusability:</strong> Designed to be extended, promoting code
+          reuse.
+        </li>
+        <li>
+          <strong>Safe:</strong> It prevents developers from creating
+          meaningless objects (e.g., creating an "Instrument" object instead of
+          a specific "Guitar" or "Piano").
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>Data Structures: Map (or Dictionary)</h2>
+      <h3>What is a Map?</h3>
+      <p>
+        A Map (often called a Dictionary in other languages) is a collection of
+        <strong>key-value pairs</strong>.
+      </p>
+      <ul>
+        <li>Each <strong>key</strong> is unique within the map.</li>
+        <li>Each <strong>value</strong> is the data associated with that key.</li>
+      </ul>
+      <p>
+        A real-life dictionary is a perfect analogy:
+        <ul>
+            <li>The word is the <strong>key</strong>.</li>
+            <li>The definition is the <strong>value</strong>.</li>
+        </ul>
+      </p>
+
+      <h3>Benefits of Using Maps</h3>
+      <ol>
+        <li><strong>Flexibility:</strong> Can store various types of data.</li>
+        <li>
+          <strong>Reusability:</strong> A general-purpose structure for lookups.
+        </li>
+        <li>
+          <strong>Scalability:</strong> Efficient at handling large amounts of
+          data for lookups.
+        </li>
+        <li><strong>Generic Searching:</strong> Provides a fast and standard way to find data by its key.</li>
+      </ol>
+
+      <!-- Bottom Return Button -->
+      <div class="bottom-nav">
+        <a
+          href="https://stooadnotes.onrender.com/index.html"
+          class="return-button"
+          >← Return to Index</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
