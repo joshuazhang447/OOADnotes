@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOAD - Requirements Analysis & Domain Modeling</title>
+    <style>
+      /* Embedded CSS */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 800px; /* Wider for notes */
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 40px;
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #212529;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+        font-weight: 600;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 15px;
+      }
+
+      h2 {
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 8px;
+      }
+
+      p,
+      li {
+        line-height: 1.6;
+        color: #495057;
+      }
+
+      ul,
+      ol {
+        padding-left: 20px;
+      }
+
+      strong {
+        color: #343a40;
+      }
+      
+      ul li ul {
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+          Courier, monospace;
+        font-size: 0.9em;
+        background-color: #e9ecef;
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+      
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 1em;
+          margin-bottom: 1em;
+      }
+      
+      th, td {
+          border: 1px solid #dee2e6;
+          padding: 8px 12px;
+          text-align: left;
+      }
+      
+      th {
+          background-color: #f8f9fa;
+          font-weight: 600;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background-color: #dee2e6;
+        margin: 40px 0;
+      }
+
+      .return-button {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: 500;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+        margin-bottom: 25px;
+      }
+
+      .return-button:hover {
+        background-color: #e9ecef;
+        border-color: #ced4da;
+      }
+
+      .bottom-nav {
+        margin-top: 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Top Return Button -->
+      <a
+        href="https://stooadnotes.onrender.com/index.html"
+        class="return-button"
+        >← Return to Index</a
+      >
+
+      <h1>Requirements Analysis & Domain Modeling</h1>
+
+      <p>
+        This document covers the initial phases of Object-Oriented Analysis, focusing on how to capture system requirements using Use Cases and User Stories, and then translating them into a conceptual Domain Model using techniques like CRC Cards and textual analysis.
+      </p>
+
+      <hr />
+
+      <h2>Defining Requirements: Use Cases vs. User Stories</h2>
+      <p>Both Use Cases and User Stories help define what a system should do, but they approach it from different levels of detail and formality.</p>
+
+      <h3>Use Cases</h3>
+      <p>A <strong>Use Case</strong> is a detailed description of how a user (or "actor") interacts with the system to achieve a specific goal. It describes the system's behavior from the user's perspective.</p>
+      <ul>
+          <li><strong>Actor:</strong> Who or what interacts with the system (e.g., a person, another system).</li>
+          <li><strong>Main Flow:</strong> The "happy path" or success scenario.</li>
+          <li><strong>Preconditions:</strong> What must be true before the use case starts.</li>
+          <li><strong>Postconditions:</strong> What must be true after the use case successfully ends.</li>
+          <li><strong>Alternatives/Exceptions:</strong> What happens if something goes wrong or an alternative path is taken.</li>
+      </ul>
+      
+      <h4>Example: Dog Door System</h4>
+      <ul>
+        <li><strong>Use Case Name:</strong> Open Dog Door</li>
+        <li><strong>Actors:</strong> Dog (primary), System, Bark Recognizer</li>
+        <li><strong>Precondition:</strong> The dog door is closed.</li>
+        <li><strong>Main Flow:</strong>
+          <ol>
+            <li>The dog barks.</li>
+            <li>The Bark Recognizer detects the bark.</li>
+            <li>The System opens the door for 5 seconds.</li>
+          </ol>
+        </li>
+        <li><strong>Postcondition:</strong> The door closes after 5 seconds.</li>
+        <li><strong>Alternative:</strong> The bark is not recognized.</li>
+      </ul>
+
+      <h3>User Stories</h3>
+      <p>A <strong>User Story</strong> is a short, simple description of a feature told from the perspective of the person who desires the new capability, usually a user or customer of the system. It's often described as "a promise for a conversation."</p>
+        <ul>
+          <li><strong>Characteristics:</strong> Small, Independent, Testable (S.I.T.).</li>
+          <li><strong>Benefits:</strong> Lightweight, flexible, focuses on user needs, and easy to modify. Commonly used in Agile/XP methodologies.</li>
+          <li><strong>Format:</strong> As a <strong>[user type]</strong>, I want <strong>[goal]</strong> so that <strong>[benefit]</strong>.</li>
+        </ul>
+        <h4>Example: Dog Door System</h4>
+        <p><em>"As a <strong>[dog owner]</strong>, I want <strong>[the door to open when my dog barks]</strong> so that <strong>[my dog can go outside safely]</strong>."</em></p>
+      
+      <hr />
+
+      <h2>Building a Domain Model</h2>
+      <p>A <strong>Domain Model</strong> represents concepts, attributes, and relationships in the real-world problem area. It's important to remember that a domain model is <strong>not yet a software design</strong>; it's a visual dictionary of the key abstractions in the domain.</p>
+      <h3>Steps to Build a Domain Model:</h3>
+      <ol>
+          <li><strong>Find Conceptual Classes:</strong> Identify key nouns from use cases and requirements.</li>
+          <li><strong>Draw UML Diagrams:</strong> Represent the classes and their connections visually.</li>
+          <li><strong>Show Relationships:</strong> Define associations between classes.</li>
+          <li><strong>Add Attributes and Multiplicity:</strong> Detail the properties of each class and the cardinality of their relationships.</li>
+      </ol>
+      
+      <h3>Identifying Conceptual Classes</h3>
+      <p>A common technique for finding classes is <strong>Textual Analysis</strong>.</p>
+      <ul>
+        <li>Identify all nouns in the use cases or requirements documents. These are potential classes.</li>
+        <li>Eliminate duplicates and irrelevant nouns.</li>
+        <li>Keep a list of potential classes, even if you are unsure. They can be refined later.</li>
+      </ul>
+
+      <hr />
+      
+      <h2>Object Collaboration and CRC Cards</h2>
+      
+      <h3>What is Object Collaboration?</h3>
+      <p>Object collaboration is the "teamwork" between objects. Since one object can't do everything by itself, it must work with other objects to complete a task. This is achieved by objects sending messages to each other (i.e., calling each other's methods).</p>
+      
+      <h3>CRC Cards (Class-Responsibility-Collaborator)</h3>
+      <p>CRC cards are an informal, team-based technique to define how objects collaborate. Each card represents a single class in the system and is divided into three sections:</p>
+      <ul>
+          <li><strong>Class Name:</strong> The name of the object or concept.</li>
+          <li><strong>Responsibilities:</strong> What the class knows or does (its behaviors).</li>
+          <li><strong>Collaborators:</strong> Other classes it works with to fulfill its responsibilities.</li>
+      </ul>
+
+      <h4>Example: Dog Door CRC Card</h4>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">Class: Dog Door</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Responsibilities</strong></td>
+            <td><strong>Collaborators</strong></td>
+          </tr>
+          <tr>
+            <td>- Open & Close the door</td>
+            <td>- Bark Recognizer<br>- Remote</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <hr />
+      
+      <h2>Multiplicity in UML</h2>
+      <p><strong>Multiplicity</strong> (or cardinality) in UML shows how many instances of one class can be associated with one instance of another class. It describes the rules of a relationship.</p>
+      
+      <h3>Common Multiplicity Notations</h3>
+      <table>
+          <thead>
+              <tr>
+                  <th>Notation</th>
+                  <th>Meaning</th>
+                  <th>Example</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td><code>1</code> or <code>1..1</code></td>
+                  <td>Exactly one</td>
+                  <td>A <strong>Dog Door</strong> is connected to exactly one <strong>Bark Recognizer</strong>.</td>
+              </tr>
+              <tr>
+                  <td><code>0..1</code></td>
+                  <td>Zero or one (optional)</td>
+                  <td>A <strong>Dog</strong> may have a <strong>Collar</strong> (but not always).</td>
+              </tr>
+              <tr>
+                  <td><code>*</code> or <code>0..*</code></td>
+                  <td>Zero or many</td>
+                  <td>A <strong>Dog</strong> can have many <strong>Barks</strong>.</td>
+              </tr>
+              <tr>
+                  <td><code>1..*</code></td>
+                  <td>One or many</td>
+                  <td>An <strong>Owner</strong> has at least one <strong>Dog</strong>.</td>
+              </tr>
+          </tbody>
+      </table>
+
+      <!-- Bottom Return Button -->
+      <div class="bottom-nav">
+        <a
+          href="https://stooadnotes.onrender.com/index.html"
+          class="return-button"
+          >← Return to Index</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
