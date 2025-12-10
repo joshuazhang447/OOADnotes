@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOAD - Week 13 Notes</title>
+    <style>
+      /* Embedded CSS */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 800px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 40px;
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #212529;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+        font-weight: 600;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 15px;
+      }
+
+      h2 {
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 8px;
+      }
+
+      p,
+      li {
+        line-height: 1.6;
+        color: #495057;
+      }
+
+      ul,
+      ol {
+        padding-left: 20px;
+      }
+
+      strong {
+        color: #343a40;
+      }
+
+      ul li ul {
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+          Courier, monospace;
+        font-size: 0.9em;
+        background-color: #e9ecef;
+        padding: 2px 4px;
+        border-radius: 3px;
+        color: #c7254e;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background-color: #dee2e6;
+        margin: 40px 0;
+      }
+
+      .return-button {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: 500;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+        margin-bottom: 25px;
+      }
+
+      .return-button:hover {
+        background-color: #e9ecef;
+        border-color: #ced4da;
+      }
+
+      .bottom-nav {
+        margin-top: 40px;
+        text-align: center;
+      }
+      
+      .analogy-box {
+        background-color: #e7f5ff;
+        border-left: 4px solid #007bff;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Top Return Button -->
+      <a href="index.html" class="return-button">← Return to Index</a>
+
+      <h1>Week 13: Domain Models & Design Patterns</h1>
+
+      <p>
+        This week focuses on conceptualizing the system through Domain Models, understanding the importance of Design Patterns, and structuring applications using the Model-View-Controller (MVC) concept.
+      </p>
+
+      <hr />
+
+      <h2>1. The Domain Model</h2>
+      <p>
+        <strong>What is a Domain Model?</strong><br>
+        A Domain Model is a picture (diagram) or description that shows:
+      </p>
+      <ul>
+        <li>The <strong>real-world concepts</strong> in the system.</li>
+        <li>Their <strong>attributes</strong> (data they store).</li>
+        <li>Their <strong>relationships</strong> (how they connect).</li>
+      </ul>
+      <p>
+        It represents the problem we are trying to solve. Importantly, a Domain Model is:
+      </p>
+      <ul>
+        <li><strong>NOT</strong> the UI.</li>
+        <li><strong>NOT</strong> the Database.</li>
+        <li><strong>NOT</strong> the Code.</li>
+      </ul>
+      <p>
+        <em>Example:</em> A POS (Point of Sale) System has a domain model that includes: Sale, Product, Payment, Cashier, Store.
+      </p>
+
+      <hr />
+
+      <h2>2. Design Patterns</h2>
+
+      <h3>What is a Design Pattern?</h3>
+      <p>
+        A Design Pattern is a <strong>named solution</strong> to a <strong>common problem</strong> in software design.
+      </p>
+      <ul>
+        <li>It is something that has been proven to work again and again.</li>
+        <li>It is a reusable idea we can apply in different situations.</li>
+        <li>It acts like a template, recipe, or blueprint.</li>
+      </ul>
+
+      <h3>Why do we name them?</h3>
+      <p>
+        Naming creates a <strong>shared vocabulary</strong> among developers. If one developer says "Use a Factory here," every other developer understands the architectural implication quickly.
+      </p>
+
+      <h3>Common Design Patterns</h3>
+      <ul>
+        <li><strong>Singleton:</strong> Ensures one instance only exists.</li>
+        <li><strong>Strategy:</strong> Allows choosing behavior at runtime.</li>
+        <li><strong>Observer:</strong> Notifies multiple objects automatically (events).</li>
+        <li><strong>Factory:</strong> Creates objects without showing how they are created.</li>
+      </ul>
+
+      <div class="analogy-box">
+        <strong>Example: The Singleton Pattern</strong>
+        <p>
+          <strong>Problem:</strong> Want only one instance of something in the whole system.
+        </p>
+        <p>
+          <strong>Real World:</strong> There is only one principal in the school. There is only one president of the company.
+        </p>
+        <p>
+          <strong>In Software:</strong> One printer manager, one database connection manager, or one game engine instance.
+        </p>
+      </div>
+
+      <hr />
+
+      <h2>3. System Architecture (Separation of Concerns)</h2>
+
+      <h3>Domain Class vs. UI Class</h3>
+      <p>
+        To keep the system clean and reusable, we separate logic from the interface.
+      </p>
+      <ul>
+        <li>
+          <strong>Domain Class (Business Logic):</strong>
+          <ul>
+            <li>Stores real business rules.</li>
+            <li>Performs calculations.</li>
+            <li>Knows data & logic.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>UI Class (Presentation):</strong>
+          <ul>
+            <li>Only handles user interaction.</li>
+            <li>Only shows output.</li>
+            <li>Passes requests to the domain class.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Why not connect Domain Objects directly to UI?</h3>
+      <p>
+        Because the UI changes many times in many forms (Web, Mobile, Desktop, Touchscreen), but the business logic should remain the same.
+      </p>
+
+      <h3>The MVC Analogy (Restaurant)</h3>
+      <p>
+        We can explain the relationship between Model, View, and Controller using a restaurant analogy:
+      </p>
+      <ul>
+        <li>
+          <strong>Model (The Chef):</strong> Represents the business logic.
+          <ul>
+            <li>Not allowed to take orders (no user interaction).</li>
+            <li>Focuses on the "cooking" (data/behavior).</li>
+          </ul>
+        </li>
+        <li>
+          <strong>View (The Waiter):</strong> Represents the User Interface.
+          <ul>
+            <li>Not allowed to cook (no logic).</li>
+            <li>Handles user interaction.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Controller (Order System):</strong> The bridge.
+          <ul>
+            <li>They communicate through the controller.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Bottom Return Button -->
+      <div class="bottom-nav">
+        <a href="index.html" class="return-button">← Return to Index</a>
+      </div>
+    </div>
+  </body>
+</html>
