@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOAD - Week 11 Notes</title>
+    <style>
+      /* Embedded CSS */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 800px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 40px;
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #212529;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+        font-weight: 600;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 15px;
+      }
+
+      h2 {
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 8px;
+      }
+
+      p,
+      li {
+        line-height: 1.6;
+        color: #495057;
+      }
+
+      ul,
+      ol {
+        padding-left: 20px;
+      }
+
+      strong {
+        color: #343a40;
+      }
+
+      ul li ul {
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+          Courier, monospace;
+        font-size: 0.9em;
+        background-color: #e9ecef;
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background-color: #dee2e6;
+        margin: 40px 0;
+      }
+
+      .return-button {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: 500;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+        margin-bottom: 25px;
+      }
+
+      .return-button:hover {
+        background-color: #e9ecef;
+        border-color: #ced4da;
+      }
+
+      .bottom-nav {
+        margin-top: 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Top Return Button -->
+      <a href="index.html" class="return-button">← Return to Index</a>
+
+      <h1>Week 11: Design Principles & Analysis</h1>
+
+      <p>
+        This week covers iterative development, core design principles like cohesion and scalability, commonality analysis, class structures, and data structures (Maps).
+      </p>
+
+      <hr />
+
+      <h2>Iterative Development</h2>
+      <p>
+        Design is not a static process; it is a cycle.
+      </p>
+      <ul>
+        <li>Good designs aren't done once—it <strong>evolves</strong>.</li>
+        <li>Each iteration improves the design.</li>
+        <li>Software design is a <strong>cycle</strong>, not a straight line.</li>
+      </ul>
+
+      <hr />
+
+      <h2>Design Principles (Design II)</h2>
+      <p>
+        Key characteristics of a robust software architecture include Cohesion, Scalability, and Maintainability.
+      </p>
+
+      <h3>1. Cohesion</h3>
+      <p>
+        Cohesion defines how focused a class is. A class should do one thing really well and have <strong>one reason to change</strong>.
+      </p>
+      <ul>
+        <li>
+          <strong>High Cohesion (Good):</strong> Each class handles its own purpose (flexible).
+          <ul>
+            <li><em>Example:</em> A <code>Customer Account</code> class manages only balance and transactions.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Low Cohesion (Bad):</strong> One class tries to do too much. This makes it hard to change.
+          <ul>
+            <li><em>Example:</em> A <code>Utility</code> class that handles mixing, emailing, painting, etc.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>2. Scalable</h3>
+      <p>
+        A system is scalable if it can easily grow or handle more features or data without needing major changes to the code.
+      </p>
+      <ul>
+        <li>In other words: it expands smoothly and can handle growth easily.</li>
+      </ul>
+
+      <h3>3. Maintainable</h3>
+      <p>
+        A system is maintainable if it is easy to understand, fix, and modify in the future without breaking other parts of the code.
+      </p>
+
+      <hr />
+
+      <h2>Commonality vs. Variability Analysis</h2>
+      <p>
+        This analysis technique is used to distinguish between general concepts and specific implementation details.
+      </p>
+
+      <h3>Basic Analysis Example</h3>
+      <p><strong>Question:</strong> What do a Turkey and a Canada Goose have in common?</p>
+      <ul>
+        <li><strong>Answer:</strong> Feathers, fly, swim, birds.</li>
+      </ul>
+
+      <h3>Instrument Analysis Example</h3>
+      <p>
+        We separate what all instruments share from how they differ.
+      </p>
+      <ul>
+        <li>
+          <strong>Commonality (What do all instruments share?):</strong>
+          <ul>
+            <li>Manufacturer</li>
+            <li>Type</li>
+            <li>Price</li>
+            <li>Serial #</li>
+            <li>Specifications</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Variability (What differs?):</strong>
+          <ul>
+            <li>Style</li>
+            <li>Number of strings</li>
+            <li>Wood type</li>
+            <li>Shape</li>
+            <li>Tuning</li>
+          </ul>
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>Classes: Abstract vs. Concrete</h2>
+      <p>
+        Understanding the relationship between blueprints and actual objects.
+      </p>
+
+      <h3>Abstract Classes</h3>
+      <ul>
+        <li>Are like a <strong>blueprint</strong>.</li>
+        <li>Cannot be used to create actual objects (can't build from it directly).</li>
+        <li>usually represents a general concept that is shared by more specific types.</li>
+        <li>May contain <strong>abstract methods</strong> (methods without code yet) that subclasses <em>must</em> implement.</li>
+      </ul>
+
+      <h3>Concrete Classes</h3>
+      <ul>
+        <li>A <strong>complete</strong> class.</li>
+        <li>It can create objects from it.</li>
+        <li>It provides actual implementations for all its methods.</li>
+      </ul>
+
+      <h3>Advantages of Using Abstract Classes</h3>
+      <ul>
+        <li><strong>Clean and Logical:</strong> Separates general ideas from specific ones. Common properties and methods go in the abstract parent.</li>
+        <li><strong>Reusability:</strong> Designed to be extended.</li>
+        <li><strong>Safe:</strong> It prevents creating meaningless objects (e.g., preventing the instantiation of a generic "Shape" when you need a "Circle").</li>
+      </ul>
+
+      <hr />
+
+      <h2>Data Structures: Map (or Dictionary)</h2>
+
+      <h3>Definition</h3>
+      <p>
+        A Map in Java is a Collection of <strong>key-value pairs</strong>.
+      </p>
+      <ul>
+        <li>Each <strong>key</strong> is unique.</li>
+        <li>Each <strong>value</strong> is the data associated with that key.</li>
+      </ul>
+
+      <h3>Real Life Analogy</h3>
+      <p>
+        If we take a dictionary:
+      </p>
+      <ul>
+        <li>The <strong>Word</strong> is the Key.</li>
+        <li>The <strong>Definition</strong> is the Value.</li>
+      </ul>
+
+      <h3>Benefits of Using Maps</h3>
+      <ol>
+        <li><strong>Flexibility</strong></li>
+        <li><strong>Reusability</strong></li>
+        <li><strong>Scalability</strong></li>
+        <li><strong>Generic Searching</strong></li>
+      </ol>
+
+      <!-- Bottom Return Button -->
+      <div class="bottom-nav">
+        <a href="index.html" class="return-button">← Return to Index</a>
+      </div>
+    </div>
+  </body>
+</html>
